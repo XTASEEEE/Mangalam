@@ -232,14 +232,14 @@ const Contact = () => {
               <h3 className="text-2xl font-bold mb-4">Find Us</h3>
               <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.8157775916437!2d77.48017931508068!3d28.474924982467556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea6f5a6f5555%3A0x5555555555555555!2sKnowledge%20Park%20III%2C%20Greater%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.2366732806524!2d77.47513707549622!3d28.46468837574688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea75a1a1a1a1%3A0x1a1a1a1a1a1a1a1a!2sKnowledge%20Park%20III%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310!5e0!3m2!1sen!2sin!4v1735661234567!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Mangalam Caterers Location"
+                  title="Mangalam Caterers - 11-D, Knowledge Park III, Greater Noida"
                 ></iframe>
               </div>
               <div className="mt-4 flex items-start gap-3">
