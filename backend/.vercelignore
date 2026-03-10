@@ -1,0 +1,14 @@
+# Vercel Backend - Ignore unnecessary files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env.local
+.env.development
+*.log
+.DS_Store
+venv/
+ENV/
+node_modules/
+.pytest_cache/
