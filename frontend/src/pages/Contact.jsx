@@ -13,6 +13,9 @@ import {
   SelectValue,
 } from '../components/ui/select';
 import { toast } from 'sonner';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,6 +27,8 @@ const Contact = () => {
     eventDate: '',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -32,22 +37,48 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission
-    console.log('Form submitted:', formData);
-    toast.success('Thank you! We will contact you shortly.');
+    setIsSubmitting(true);
     
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      eventType: '',
-      guestCount: '',
-      eventDate: '',
-      message: ''
-    });
+    try {
+      const response = await axios.post(
+        `${BACKEND_URL}/api/contact/inquiry`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      
+      if (response.data.success) {
+        toast.success(response.data.message || 'Thank you! We will contact you shortly.');
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          eventType: '',
+          guestCount: '',
+          eventDate: '',
+          message: ''
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      
+      if (error.response) {
+        toast.error(error.response.data.detail || 'Failed to submit inquiry. Please try again.');
+      } else if (error.request) {
+        toast.error('Unable to connect to server. Please try again later or call us directly.');
+      } else {
+        toast.error('An error occurred. Please try again or contact us via phone.');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -219,8 +250,9 @@ const Contact = () => {
                 size="lg" 
                 className="w-full"
                 style={{ backgroundColor: '#61525a' }}
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </div>
