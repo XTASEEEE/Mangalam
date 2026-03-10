@@ -1,0 +1,130 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║   🚀 BACKEND DEPLOYMENT - QUICK CHECKLIST                    ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+BEFORE YOU START
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ ] Code pushed to GitHub
+[ ] MongoDB connection string ready
+[ ] Gmail App Password ready
+[ ] Vercel account logged in
+
+
+STEP 1: VERCEL DASHBOARD SETUP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. [ ] Go to: https://vercel.com/dashboard
+2. [ ] Click: "Add New..." → "Project"
+3. [ ] Import your repository
+4. [ ] Click: "Import"
+
+
+STEP 2: CONFIGURE PROJECT ⚠️ CRITICAL!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ ] Framework Preset: "Other"
+[ ] Root Directory: "backend" ← MUST SET THIS!
+    (Click Edit → Type: backend → Save)
+[ ] Build Command: (leave empty)
+[ ] Output Directory: (leave empty)
+
+
+STEP 3: ADD ENVIRONMENT VARIABLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Add these 7 variables (select all environments):
+
+[ ] MONGO_URL = mongodb://localhost:27017
+    (or your MongoDB Atlas connection string)
+
+[ ] MONGODB_URI = (same as MONGO_URL)
+
+[ ] DB_NAME = mangalam_caterers
+
+[ ] GMAIL_USER = srd.hospitality.india@gmail.com
+
+[ ] GMAIL_APP_PASSWORD = [your 16-char password]
+
+[ ] NOTIFICATION_EMAIL = srd.hospitality.india@gmail.com
+
+[ ] CORS_ORIGINS = *
+
+
+STEP 4: DEPLOY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ ] Double-check Root Directory = "backend"
+[ ] Double-check all 7 env variables added
+[ ] Click: "Deploy" button
+[ ] Wait 2-3 minutes
+[ ] Watch build logs
+
+
+STEP 5: TEST BACKEND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ ] Copy your backend URL (e.g., https://xxx.vercel.app)
+[ ] Test in browser: https://your-backend.vercel.app/api
+[ ] Should see: {"message": "Mangalam Caterers API", ...}
+
+
+STEP 6: UPDATE FRONTEND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ ] Go to: Frontend project → Settings → Environment Variables
+[ ] Edit: REACT_APP_BACKEND_URL
+[ ] Change to: https://your-backend.vercel.app
+[ ] Save
+[ ] Go to: Deployments → Redeploy
+
+
+STEP 7: END-TO-END TEST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[ ] Visit: your-frontend.vercel.app/contact
+[ ] Fill out contact form
+[ ] Submit
+[ ] Check: Success message appears
+[ ] Check: Email received at srd.hospitality.india@gmail.com
+[ ] Check: No console errors (F12)
+
+
+✅ SUCCESS INDICATORS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ Backend URL accessible
+✓ /api endpoint returns JSON
+✓ Form submits successfully
+✓ Email notifications working
+✓ No CORS errors
+✓ MongoDB saving data
+
+
+🚨 IF YOU GET "NOT_FOUND" ERROR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Most common cause: Root Directory not set!
+
+FIX:
+1. Go to: Settings → General
+2. Find: Root Directory
+3. Change to: backend
+4. Save
+5. Go to: Deployments → Click menu (⋮) → Redeploy
+
+
+📚 DETAILED GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+See: /app/BACKEND_DEPLOYMENT_WALKTHROUGH.md
+
+
+⏱️ ESTIMATED TIME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Setup: 10 minutes
+Deploy: 3 minutes
+Testing: 5 minutes
+Total: ~20 minutes
+
+
+🆘 NEED HELP?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Share with me:
+- Build log errors
+- Your Root Directory setting
+- Which step you're stuck on
+
+
+GOOD LUCK! 🚀
