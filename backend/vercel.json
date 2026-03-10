@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "framework": "fastapi",
   "builds": [
     {
       "src": "api/index.py",
@@ -8,19 +9,8 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "api/index.py"
-    },
-    {
-      "src": "/api",
-      "dest": "api/index.py"
-    },
-    {
-      "src": "/api/(.*)",
+      "src": "/(.*)",
       "dest": "api/index.py"
     }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.11"
-  }
+  ]
 }

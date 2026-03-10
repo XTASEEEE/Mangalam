@@ -216,5 +216,6 @@ async def get_inquiry(inquiry_id: str):
         logger.error(f"Error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# For Vercel serverless
-handler = app
+# For Vercel serverless - must be at module level
+# Vercel looks for 'app' variable specifically
+app = app  # This ensures 'app' is available at module level
