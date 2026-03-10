@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "yarn build",
+  "buildCommand": "yarn install --frozen-lockfile && yarn build",
+  "installCommand": "yarn install --frozen-lockfile",
   "outputDirectory": "build",
   "devCommand": "yarn start",
   "framework": "create-react-app",
