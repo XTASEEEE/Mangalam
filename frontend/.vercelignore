@@ -1,0 +1,9 @@
+# Don't upload these to Vercel
+node_modules
+.cache
+.env.local
+.env.development.local
+.env.test.local
+coverage
+*.log
+.DS_Store
